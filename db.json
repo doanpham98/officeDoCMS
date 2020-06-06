@@ -1,0 +1,16 @@
+{
+    "products":[
+        {
+            "id":1,
+            "name":"Keo dán điểm 10",
+            "price":3000,
+            "image":"https://product.hstatic.net/1000230347/product/keo_dan_giay_thien_long_-_diem_10_g-08__2__large.jpg"
+        },
+        {
+            "id":2,
+            "name":"Dao rọc giấy SDI 0423 - lớn",
+            "price":14000,
+            "image":"https://cdn.vmax.vn/pub/media/catalog/product/cache/8872124951f387c8ded3f228faa55bea/d/a/dao-roc-giay-sdi-0423-loai-lon-min.jpg"
+        }
+    ]
+}
