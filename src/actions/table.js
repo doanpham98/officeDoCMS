@@ -43,4 +43,19 @@ export const searchProductAsync = (keyword)=>{
         .catch(err=>console.error(err))
 
     }
-} 
+}
+
+const editProduct = (id,payload)=>{
+    return{
+        type:"EDIT_PRODUCT",
+        payload,id
+    }
+}
+
+export const editProductAsync = (id,changes)=>{
+    return dispatch=>{
+        webService.editItem(id,changes)
+        .then(res=>dispatch(editProduct(id,res.data)))
+        .catch(err=>console.error(err))
+    }
+}

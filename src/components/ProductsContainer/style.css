@@ -1,3 +1,10 @@
 td{
-   line-height: 100px;
+   vertical-align: middle !important;
+}
+.button-group{
+  padding: 0 !important;
+  width: 15%;
+}
+.button-group button{
+   margin: 0 !important;
 }

@@ -11,7 +11,11 @@ export default function (state=[],action){
 
           case "SEARCH_PRODUCT":
             return action.payload
-            
+          
+           case "EDIT_PRODUCT":
+            return [...state].map(product=>{
+               return product.id===action.id?action.payload:product
+            })
         default:
             return state
       }
