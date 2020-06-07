@@ -13,7 +13,6 @@ export default function AddNewProduct() {
     const dispatch=useDispatch()
 
     const onSubmitAddForm = (e)=>{
- 
          const name = e.target.productName.value
          const price = e.target.productPrice.value
          const image = e.target.productImage.value

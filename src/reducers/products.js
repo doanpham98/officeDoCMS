@@ -16,6 +16,9 @@ export default function (state=[],action){
             return [...state].map(product=>{
                return product.id===action.id?action.payload:product
             })
+
+            case "DELETE_PRODUCT":
+                return [...state].filter(product=>product.id!==action.payload)
         default:
             return state
       }

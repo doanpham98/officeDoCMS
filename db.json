@@ -13,10 +13,22 @@
       "image": "https://cdn.vmax.vn/pub/media/catalog/product/cache/8872124951f387c8ded3f228faa55bea/d/a/dao-roc-giay-sdi-0423-loai-lon-min.jpg"
     },
     {
-      "name": "Kéo Cắt Giấy Văn Phòng ZhengTian S007",
-      "price": "12000",
-      "image": "https://cf.shopee.vn/file/2edc240359f60cc091794c764a7849b6",
+      "name": "Bút Bi Flexoffice FO-03",
+      "price": "2590",
+      "image": "https://product.hstatic.net/1000230347/product/33_95fcbd9d09874090ba2a64d036991605_large.jpg",
       "id": 3
+    },
+    {
+      "name": "Bút bi Thiên Long TL-025",
+      "price": "5000",
+      "image": "https://anlocviet.vn/upload/product/butbithienlongtl2529-3581.jpg",
+      "id": 4
+    },
+    {
+      "name": "Bút bi nến sọc",
+      "price": "2000",
+      "image": "https://officexinh.com/image/cache/data/image/data/But-bi-but-gel/but-bi-nen-soc-400x400_0.jpg",
+      "id": 5
     }
   ]
 }

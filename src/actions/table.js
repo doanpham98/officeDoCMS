@@ -59,3 +59,18 @@ export const editProductAsync = (id,changes)=>{
         .catch(err=>console.error(err))
     }
 }
+
+const deleteProduct = (payload)=>{
+    return{
+        type:"DELETE_PRODUCT",
+        payload
+    }
+}
+
+export const deleteProductAsync = (id)=>{
+    return dispatch=>{
+        webService.deleteItem(id)
+        .then(()=>dispatch(deleteProduct(id)))
+        .catch(err=>console.error(err))
+    }
+}

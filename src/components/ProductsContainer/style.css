@@ -8,3 +8,10 @@ td{
 .button-group button{
    margin: 0 !important;
 }
+.button{
+   width: 45% !important;
+   margin-left: 0 !important;
+}
+.button-no{
+   float: right !important;
+}
