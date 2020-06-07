@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import './App.css';
+import React, { useEffect } from 'react'
+import './App.css'
+import { useDispatch } from 'react-redux'
+import { fetchDataAsync } from './actions/table'
 import Header from "./components/Heading"
 import Products from "./components/ProductsContainer"
-import { useDispatch } from 'react-redux';
-import {fetchDataAsync} from './actions/table'
+import Dashboard from './components/Dashboard'
 function App() {
   const dispatch = useDispatch();
-  useEffect(()=>{
-      dispatch(fetchDataAsync())
-  },[dispatch])
+  useEffect(() => {
+    dispatch(fetchDataAsync())
+  }, [dispatch])
   return (
     <div className="App">
-      <Header/>
-      <Products/>
+      <Header />
+      <Dashboard />
+      <Products />
     </div>
   );
 }

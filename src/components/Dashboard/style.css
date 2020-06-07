@@ -1,0 +1,19 @@
+.search-box{
+    width: 30% !important;
+    float: right;
+    margin-right: 30px !important;
+}
+button{
+    margin-left: 30px !important;
+    float: left;
+}
+.add-form{
+    margin: 50px !important;
+}
+.add-form input{
+    width: 400px;
+}
+.btn-submit-add{
+    width: 100% !important;
+    margin: 0 !important;
+}

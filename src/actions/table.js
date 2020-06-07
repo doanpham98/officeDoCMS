@@ -12,3 +12,17 @@ export const fetchDataAsync = ()=>{
         .then(res=>dispatch(fetchData(res.data)))
    }
 }
+
+const addNewProduct=(payload)=>{
+    return{
+        type:"ADD_PRODUCT",
+        payload
+    }
+}
+
+export const addNewProductAsync = (newData)=>{
+    return dispatch=>{
+        webService.addNewItem(newData)
+        .then(res=>dispatch(addNewProduct(res.data)))
+    }
+}

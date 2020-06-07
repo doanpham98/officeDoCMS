@@ -18,6 +18,10 @@ const editItem = (id,changes)=>{
     return Axios.patch(`${baseUrl}/${id}`,changes)
 }
 
+const searchItem=(keyword)=>{
+    return Axios.get(`${baseUrl}?q=${keyword}`)
+}
+
 export default {
-    getAll,addNewItem,deleteItem,editItem
+    getAll,addNewItem,deleteItem,editItem,searchItem
 }
