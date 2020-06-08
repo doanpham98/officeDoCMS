@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Modal ,Form, FormGroup, Label, Input } from 'reactstrap'
 import { useDispatch } from 'react-redux';
-import {addNewProductAsync} from '../../actions/table'
+import {addNewProductAsync} from '../../actions/product'
 
 
 export default function AddNewProduct() {
@@ -13,18 +13,16 @@ export default function AddNewProduct() {
     const dispatch=useDispatch()
 
     const onSubmitAddForm = (e)=>{
+        e.preventDefault()
          const name = e.target.productName.value
          const price = e.target.productPrice.value
          const image = e.target.productImage.value
          if(name===''||price===''){
              alert("check name input or price input, you not be blank ")
-             e.preventDefault()
              return false
-           
          }
          else if (isNaN(price)){
              alert("Price must be a number")
-             e.preventDefault()
              return false
          }
          else {
@@ -33,6 +31,7 @@ export default function AddNewProduct() {
                 price:price,
                 image:image
             } ))
+            toggle()
          } 
     }
 

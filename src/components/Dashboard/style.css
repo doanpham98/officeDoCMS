@@ -17,3 +17,15 @@ button{
     width: 100% !important;
     margin: 0 !important;
 }
+.number-item{
+    display: inline-flex;
+    float: left;
+    /* margin-top: 0.5rem; */
+    margin-left: 10px;
+    width: 10% !important;
+}
+.number-item span{
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 120%;
+}

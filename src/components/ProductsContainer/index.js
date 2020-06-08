@@ -5,7 +5,7 @@ import Product from './product'
 import './style.css'
 export default function ProductsContainer (){
 
-  const data=useSelector(state=>state.products)
+  const data=useSelector(state=>state.pagination.data)
 
     return <Table className='mt-5'>
     <thead>

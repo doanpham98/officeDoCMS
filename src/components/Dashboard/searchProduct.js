@@ -1,7 +1,7 @@
 import React from 'react'
 import {Input} from "reactstrap"
 import { useDispatch } from 'react-redux'
-import {searchProductAsync} from '../../actions/table'
+import {searchProductAsync} from '../../actions/product'
 export default function SearchBoxProduct(){
 
     const dispatch = useDispatch(); 

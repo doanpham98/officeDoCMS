@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import {Button,Modal,Input,FormGroup,Label,Form} from 'reactstrap'
 import { useDispatch } from "react-redux"
-import {editProductAsync,deleteProductAsync} from '../../actions/table'
+import {editProductAsync,deleteProductAsync} from '../../actions/product'
 
 const Product = (product) => {
   
@@ -16,17 +16,16 @@ const Product = (product) => {
   const toggleDelete = () => setModalDelete(!modalDelete)
   
   const onSubmitEditForm = (e)=>{
+    e.preventDefault()
     const name = e.target.productName.value
     const price = e.target.productPrice.value
     const image = e.target.productImage.value
     if(name===''||price===''){
         alert("check name input or price input, you not be blank ")
-        e.preventDefault()
         return false
     }
     else if (isNaN(price)){
         alert("Price must be a number")
-        e.preventDefault()
         return false
     }
     else {
@@ -35,17 +34,19 @@ const Product = (product) => {
             price:price,
             image:image
         }))
+        toggleEdit()
     } 
   }
 
   const onDeleteButton =()=>{
       dispatch(deleteProductAsync(product.id))
+      toggleDelete()
   }
 
     return <tr>
         <td>{product.id}</td>
         <td>{product.name}</td>
-        <td>{product.price}</td>
+        <td>{product.price} <sup>vnd</sup></td>
         <td><img src={product.image} height="100px" alt="product"/></td>
         <td className="button-group"><Button color="secondary" onClick={toggleEdit}>Edit</Button>
         <Modal isOpen={modalEdit} toggle={toggleEdit} >
@@ -69,8 +70,8 @@ const Product = (product) => {
         <Button color="danger" onClick={toggleDelete}>Delete</Button></td>
         <Modal isOpen={modalDelete} toggle={toggleDelete}style={{marginTop:"200px"}}>
             <div style={{padding:"20px"}}>
-            <h4 style={{textAlign:"center"}}>You sure want to delete this product?</h4>
-            <Button onClick={onDeleteButton} color="success" className="button button-yes">Yes</Button><Button onClick={toggleDelete} className="button button-no" >No</Button>
+            <h4 style={{textAlign:"center"}}>Do you sure want to delete this product?</h4>
+            <Button onClick={onDeleteButton}  color="success" className="button button-yes">Yes</Button><Button onClick={toggleDelete} className="button button-no" >No</Button>
             </div>
         </Modal>
     </tr>

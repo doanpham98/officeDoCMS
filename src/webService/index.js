@@ -22,6 +22,10 @@ const searchItem=(keyword)=>{
     return Axios.get(`${baseUrl}?q=${keyword}`)
 }
 
+const paginate=(_page,_limit)=>{
+    return Axios.get(`${baseUrl}?_page=${_page}&_limit=${_limit}`)
+}
+
 export default {
-    getAll,addNewItem,deleteItem,editItem,searchItem
+    getAll,addNewItem,deleteItem,editItem,searchItem,paginate
 }
