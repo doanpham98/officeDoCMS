@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const baseUrl = "http://localhost:3001/products"
+const baseUrl = "https://5ee0a54430deff0016c3f36d.mockapi.io/api/products"
 
 const getAll = ()=>{
     return Axios.get(baseUrl)
@@ -15,7 +15,7 @@ const deleteItem = (id)=>{
 }
 
 const editItem = (id,changes)=>{
-    return Axios.patch(`${baseUrl}/${id}`,changes)
+    return Axios.put(`${baseUrl}/${id}`,changes)
 }
 
 const searchItem=(keyword)=>{
