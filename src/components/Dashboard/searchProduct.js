@@ -11,5 +11,5 @@ export default function SearchBoxProduct(){
        dispatch(searchProductAsync(keyword))
     }
 
-    return <Input className="search-box" type="text" placeholder="Search some thing..." onInput={e=>onSearchProduct(e)}></Input>
+    return <Input className="search-box" type="text" placeholder="Search something..." onInput={e=>onSearchProduct(e)}></Input>
 }

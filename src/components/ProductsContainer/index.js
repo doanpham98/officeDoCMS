@@ -1,19 +1,38 @@
 import React from 'react'
 import {Table} from 'reactstrap'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import Product from './product'
 import './style.css'
+import sort from '../../actions/sort'
+import Item from './Th'
 export default function ProductsContainer (){
+  
+  const currentPage = useSelector(state=>state.pagination._page)
 
-  const data=useSelector(state=>state.pagination.data)
+  const limitItem = useSelector(state=>state.pagination._limit)
+  
+  const dispatch = useDispatch()
+
+  const handleSort=(valueSort,waySort)=>{
+       dispatch(sort({valueSort,waySort}))
+  }
+  
+  
+
+  const data=useSelector(state=>state.products.filter(
+    (product,index)=>(
+      (limitItem*(currentPage-1)-1)<index 
+      && index<(limitItem*currentPage)
+      )
+  ))
 
     return <Table className='mt-5'>
-    <thead>
+    <thead style={{background:'#dc3545',color:"#fff"}}>
       <tr>
-        <th>id</th>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Image</th>
+     <Item text="id" handleSort={handleSort}/>
+     <Item text="product" handleSort={handleSort}/>
+     <Item text="price" handleSort={handleSort}/>
+        <th>Image </th>
         <th></th>
       </tr>
     </thead>

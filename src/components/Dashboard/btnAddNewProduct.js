@@ -2,7 +2,8 @@ import React from 'react'
 import { Button, Modal ,Form, FormGroup, Label, Input } from 'reactstrap'
 import { useDispatch } from 'react-redux';
 import {addNewProductAsync} from '../../actions/product'
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default function AddNewProduct() {
 
@@ -36,7 +37,7 @@ export default function AddNewProduct() {
     }
 
     return <div>
-        <Button color="primary" onClick={toggle}>Add</Button>
+        <Button color="primary" onClick={toggle}><FontAwesomeIcon icon={faPlusCircle}/>  Add</Button>
         <Modal isOpen={modal} toggle={toggle}>
        <Form onSubmit={(e)=>onSubmitAddForm(e)} className="add-form">
            <h1>Add New Product</h1>

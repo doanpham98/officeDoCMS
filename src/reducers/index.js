@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import pagination from './pagination'
-
+import products from './products'
+import pagination from './paginate'
 export default combineReducers({
-    pagination
+    products,pagination
 })

@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFastBackward , faFastForward ,faBackward, faForward } from '@fortawesome/free-solid-svg-icons'
 import Item from './item'
-import {getItemAsync} from '../../actions/pagination'
+import {onChangePage} from '../../actions/paginate'
+
 
 const Paginationn = () => {
 
@@ -12,35 +13,33 @@ const Paginationn = () => {
   
     const _page = useSelector(state=>state.pagination._page)
     
-    const totalPages = useSelector(state=>state.pagination.total)
+    const totalPages = useSelector(state=>state.pagination._total)
 
     const pages=[];
 
     for(let i=1;i<=totalPages;i++){
         pages.push(i);
     }
-
+    
     const dispatch = useDispatch()
 
-    const handleClickItem = (number,_limit)=>{
-         dispatch(getItemAsync(number,_limit))
+    const handleClickItem = (number)=>{
+      dispatch(onChangePage(number))
     }
-
-
     return (
-      <Pagination>
+      <Pagination size="sm">
           <PaginationItem>
-       <Button onClick={()=>handleClickItem(1,_limit)} className="ml-0" color="info" disabled={_page===1?true:false}><FontAwesomeIcon icon={faFastBackward}/></Button>
+       <Button onClick={()=>handleClickItem(1)} className="ml-0" color="info" disabled={_page===1?true:false}><FontAwesomeIcon icon={faFastBackward}/></Button>
       </PaginationItem>
       <PaginationItem>
-      <Button onClick={()=>handleClickItem(_page-1,_limit)} className="ml-0" color="info" disabled={_page===1?true:false}><FontAwesomeIcon icon={faBackward}/></Button>
+      <Button onClick={()=>handleClickItem(_page-1)} className="ml-0" color="info" disabled={_page===1?true:false}><FontAwesomeIcon icon={faBackward}/></Button>
       </PaginationItem>
         {pages.map((page,index)=><Item key={index} number={page} _page={_page} _limit={_limit} handleClickItem={handleClickItem}/>)}
         <PaginationItem>
-        <Button onClick={()=>handleClickItem(_page+1,_limit)} className="ml-0" color="info" disabled={_page===pages.length?true:false}><FontAwesomeIcon icon={faForward}/></Button>
+        <Button onClick={()=>handleClickItem(_page+1)} className="ml-0" color="info" disabled={_page===pages.length?true:false}><FontAwesomeIcon icon={faForward}/></Button>
       </PaginationItem>
       <PaginationItem>
-      <Button onClick={()=>handleClickItem(totalPages,_limit)} className="ml-0" color="info"  disabled={_page===pages.length?true:false}><FontAwesomeIcon icon={faFastForward}/></Button>
+      <Button onClick={()=>handleClickItem(totalPages)} className="ml-0" color="info"  disabled={_page===pages.length?true:false}><FontAwesomeIcon icon={faFastForward}/></Button>
       </PaginationItem>
       </Pagination>
     );
