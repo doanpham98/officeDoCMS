@@ -35,13 +35,17 @@ const searchProduct = (payload)=>{
         payload
     }
 }
+function jsUcfirst(string)
+{
+return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 
 export const searchProductAsync = (keyword)=>{
     return dispatch=>{
-        webService.searchItem(keyword)
-        .then(res=>dispatch(searchProduct(res.data)))
+        webService.getAll()
+        .then(res=>dispatch(searchProduct(keyword===''?res.data:res.data.filter(product=>product.name.indexOf(jsUcfirst(keyword))>=0))))
         .catch(err=>console.error(err))
-
     }
 }
 
