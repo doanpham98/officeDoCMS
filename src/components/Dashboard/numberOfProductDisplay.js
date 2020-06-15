@@ -13,7 +13,12 @@ const NumberOfItemDisplay = ()=>{
     }
 
     return <div className="number-item">
-        <Input type="number" defaultValue="10" min="5" max="20" step="5" onChange={e=>hadleChange(e)}></Input> <span>entries</span>
+        <select id="limit" name="limit" onChange={hadleChange}defaultValue="10">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+  </select><span>entries</span>
     </div>
 }
 export default NumberOfItemDisplay
