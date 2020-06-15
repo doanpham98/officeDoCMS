@@ -1,5 +1,4 @@
 import React from 'react'
-import {Input} from 'reactstrap'
 import { useDispatch } from 'react-redux'
 import {onChangeNumberLimitPage} from '../../actions/paginate'
 
